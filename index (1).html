@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Deepak Raj T — AI/ML Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#111;color:#fff;font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
+:root{--orange:#FF5C00;--orange2:#FF8C42;--dark:#111111;--dark2:#161616;--dark3:#1c1c1c;--border:rgba(255,255,255,0.07);--muted:rgba(255,255,255,0.45);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.3rem 5vw;background:rgba(17,17,17,0.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;}
+.nav-logo span{color:var(--orange);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{display:inline-flex;align-items:center;gap:0.6rem;background:#fff;color:#111;border:none;padding:0.65rem 1rem 0.65rem 1.5rem;border-radius:100px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:0.85rem;text-decoration:none;transition:background 0.2s,transform 0.2s;}
+.nav-cta:hover{background:#eee;transform:scale(1.03);}
+.nav-cta .arr{width:26px;height:26px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:0.85rem;}
+
+/* HERO */
+#hero{min-height:100vh;position:relative;overflow:hidden;border-radius:0 0 24px 24px;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#b82d00 0%,#ff5c00 35%,#ff8228 58%,#d93a00 80%,#6e1800 100%);}
+.hero-noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");mix-blend-mode:overlay;}
+.hero-fade{position:absolute;bottom:0;left:0;right:0;height:48%;background:linear-gradient(to top,#111 0%,transparent 100%);}
+.hero-inner{position:relative;z-index:2;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:8rem 5vw 4.5rem;}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:auto;padding-top:1rem;}
+.hero-hey{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(0.95rem,2vw,1.2rem);font-weight:400;opacity:0.85;}
+.hero-tagline{max-width:280px;text-align:right;}
+.hero-tagline h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(1rem,2vw,1.35rem);line-height:1.3;margin-bottom:0.4rem;}
+.hero-tagline p{font-size:0.82rem;opacity:0.7;line-height:1.6;}
+.hero-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(4rem,14vw,10.5rem);line-height:0.88;letter-spacing:-0.04em;margin-bottom:3.5rem;opacity:0;animation:fadeUp 0.8s ease forwards 0.2s;}
+.hero-services{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border-top:1px solid rgba(255,255,255,0.2);padding-top:1.5rem;opacity:0;animation:fadeUp 0.8s ease forwards 0.5s;}
+.svc-num{font-size:0.7rem;color:var(--orange2);font-weight:500;margin-bottom:0.25rem;letter-spacing:0.05em;}
+.svc-label{font-size:0.85rem;opacity:0.8;}
+
+/* TRUSTED */
+#trusted{padding:2rem 5vw;display:flex;align-items:center;gap:3rem;border-bottom:1px solid var(--border);}
+.trust-label{font-size:0.75rem;color:var(--muted);max-width:90px;line-height:1.5;flex-shrink:0;}
+.trust-logos{display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;}
+.trust-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:0.88rem;color:rgba(255,255,255,0.3);display:flex;align-items:center;gap:0.45rem;transition:color 0.2s;}
+.trust-logo:hover{color:rgba(255,255,255,0.65);}
+.trust-logo .d{width:15px;height:15px;border-radius:50%;border:2px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:0.5rem;}
+
+/* SHARED */
+.section-eyebrow{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:0.82rem;color:var(--orange);margin-bottom:0.9rem;letter-spacing:0.01em;}
+.section-h{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em;margin-bottom:3rem;line-height:1.0;}
+.cta-btn{display:inline-flex;align-items:center;gap:0.7rem;background:var(--orange);color:#fff;padding:0.85rem 1.4rem 0.85rem 1.8rem;border-radius:100px;text-decoration:none;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:0.88rem;transition:background 0.2s,transform 0.2s;}
+.cta-btn:hover{background:#e04e00;transform:scale(1.03);}
+.cta-btn .arr{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;}
+
+/* ABOUT */
+#about{padding:7rem 5vw;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.about-heading{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.0;letter-spacing:-0.03em;margin-bottom:0;}
+.about-body{font-size:1.05rem;font-weight:500;line-height:1.65;margin-bottom:1.2rem;color:rgba(255,255,255,0.85);}
+.about-sub{font-size:0.87rem;color:var(--muted);margin-bottom:2.5rem;line-height:1.75;}
+
+/* EDUCATION */
+#education{padding:0 5vw 7rem;}
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.edu-card{background:var(--dark2);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s;}
+.edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange2));}
+.edu-card:hover{transform:translateY(-6px);border-color:rgba(255,92,0,0.3);}
+.edu-num{font-size:0.68rem;color:var(--orange);letter-spacing:0.12em;margin-bottom:1.2rem;font-weight:500;}
+.edu-degree{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1rem;margin-bottom:0.45rem;}
+.edu-school{color:var(--muted);font-size:0.83rem;line-height:1.5;margin-bottom:1rem;}
+.edu-year{font-size:0.73rem;color:var(--orange);background:rgba(255,92,0,0.1);border:1px solid rgba(255,92,0,0.2);display:inline-block;padding:0.22rem 0.7rem;border-radius:100px;}
+
+/* EXPERIENCE */
+#experience{padding:7rem 5vw;background:var(--dark2);}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.exp-card{background:var(--dark3);border:1px solid var(--border);border-radius:16px;padding:2.5rem;transition:transform 0.3s,border-color 0.3s;}
+.exp-card:hover{transform:translateY(-6px);border-color:rgba(255,92,0,0.3);}
+.exp-badge{display:inline-flex;align-items:center;gap:0.4rem;background:rgba(255,92,0,0.1);border:1px solid rgba(255,92,0,0.2);color:var(--orange);font-size:0.7rem;font-weight:500;padding:0.28rem 0.8rem;border-radius:100px;margin-bottom:1.5rem;letter-spacing:0.04em;}
+.exp-company{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-0.02em;margin-bottom:0.25rem;}
+.exp-period{color:var(--muted);font-size:0.8rem;margin-bottom:1.8rem;}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:0.75rem;}
+.exp-bullets li{color:rgba(255,255,255,0.6);font-size:0.9rem;padding-left:1.1rem;position:relative;line-height:1.6;}
+.exp-bullets li::before{content:'';position:absolute;left:0;top:0.58em;width:4px;height:4px;border-radius:50%;background:var(--orange);}
+
+/* PROJECTS */
+#projects{padding:7rem 5vw;}
+.proj-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:flex-end;margin-bottom:3.5rem;}
+.proj-intro p{color:var(--muted);font-size:0.95rem;line-height:1.75;align-self:flex-end;}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.project-card{background:var(--dark2);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s;}
+.project-card:hover{transform:translateY(-8px);border-color:rgba(255,92,0,0.3);}
+.project-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,92,0,0.07),transparent 60%);opacity:0;transition:opacity 0.4s;pointer-events:none;}
+.project-card:hover::after{opacity:1;}
+.proj-num{font-size:0.67rem;color:var(--orange);letter-spacing:0.15em;margin-bottom:1.1rem;font-weight:500;}
+.proj-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:0.75rem;}
+.proj-desc{color:var(--muted);font-size:0.87rem;line-height:1.65;margin-bottom:1.5rem;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.tag{font-size:0.67rem;padding:0.22rem 0.6rem;border-radius:100px;background:rgba(255,92,0,0.08);border:1px solid rgba(255,92,0,0.18);color:var(--orange);}
+
+/* SKILLS */
+#skills{padding:7rem 5vw;background:var(--dark2);}
+.skills-outer{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start;}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.skill-card{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:1.6rem;transition:border-color 0.25s,transform 0.25s;}
+.skill-card:hover{border-color:rgba(255,92,0,0.25);transform:translateY(-3px);}
+.skill-head{font-size:0.68rem;color:var(--orange);font-weight:500;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;}
+.skill-list{display:flex;flex-direction:column;gap:0.5rem;}
+.skill-item{color:rgba(255,255,255,0.6);font-size:0.88rem;display:flex;align-items:center;gap:0.55rem;}
+.skill-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--orange);flex-shrink:0;}
+
+/* CERTS */
+#certs{padding:7rem 5vw;}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.cert-card{background:var(--dark2);border:1px solid var(--border);border-radius:14px;padding:1.8rem;display:flex;align-items:flex-start;gap:1.2rem;transition:transform 0.25s,border-color 0.25s;}
+.cert-card:hover{transform:translateY(-4px);border-color:rgba(255,92,0,0.25);}
+.cert-ico{width:42px;height:42px;border-radius:10px;background:rgba(255,92,0,0.1);border:1px solid rgba(255,92,0,0.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.cert-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:0.95rem;margin-bottom:0.25rem;}
+.cert-issuer{font-size:0.77rem;color:var(--muted);}
+
+/* CONTACT */
+#contact{padding:7rem 5vw;background:var(--dark2);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.contact-eyebrow{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:0.85rem;color:var(--orange);margin-bottom:1rem;}
+.contact-h{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:-0.03em;line-height:1.05;margin-bottom:0.5rem;}
+.contact-sub{color:var(--muted);font-size:0.87rem;margin-bottom:1.8rem;}
+.contact-email{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;text-decoration:none;display:block;margin-bottom:0.4rem;transition:color 0.2s;}
+.contact-email:hover{color:var(--orange);}
+.contact-phone{color:var(--muted);font-size:0.85rem;margin-bottom:2.2rem;}
+.social-row{display:flex;gap:0.7rem;flex-wrap:wrap;}
+.social-pill{font-size:0.77rem;color:rgba(255,255,255,0.6);border:1px solid var(--border);padding:0.48rem 1rem;border-radius:100px;text-decoration:none;transition:all 0.2s;}
+.social-pill:hover{color:#fff;border-color:rgba(255,255,255,0.3);}
+.contact-card{background:var(--dark3);border:1px solid var(--border);border-radius:20px;padding:2.5rem;}
+.contact-card h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:1.5rem;}
+.info-row{display:flex;justify-content:space-between;padding:0.85rem 0;border-bottom:1px solid var(--border);font-size:0.87rem;}
+.info-row:last-of-type{border-bottom:none;}
+.info-row .lbl{color:var(--muted);}
+.cta-full{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+
+/* FOOTER */
+footer{padding:1.8rem 5vw;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);font-size:0.77rem;color:var(--muted);flex-wrap:wrap;gap:0.5rem;}
+footer .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1rem;color:#fff;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .hero-title{font-size:clamp(3.5rem,16vw,6rem);}
+  .hero-services{grid-template-columns:repeat(2,1fr);}
+  #about{grid-template-columns:1fr;gap:3rem;}
+  .edu-grid,.exp-grid,.projects-grid,.certs-grid{grid-template-columns:1fr;}
+  .proj-intro,.skills-outer,#contact{grid-template-columns:1fr;gap:2.5rem;}
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .hero-top{flex-direction:column;gap:1.5rem;}
+  .hero-tagline{text-align:left;}
+}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#111;}
+::-webkit-scrollbar-thumb{background:rgba(255,92,0,0.3);border-radius:2px;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Deepak<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:raj.03deepak@gmail.com" class="nav-cta">
+    Get in touch <span class="arr">→</span>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="hero-hey">Hey, I'm a</div>
+      <div class="hero-tagline">
+        <h3>Data meets intelligence.<br>Code meets clarity.</h3>
+        <p>From models to dashboards, I build systems that think and insights that act.</p>
+      </div>
+    </div>
+    <h1 class="hero-title">AI/ML<br>Developer</h1>
+    <div class="hero-services">
+      <div><div class="svc-num">#01</div><div class="svc-label">Machine Learning</div></div>
+      <div><div class="svc-num">#02</div><div class="svc-label">Data Analytics</div></div>
+      <div><div class="svc-num">#03</div><div class="svc-label">Full-Stack Dev</div></div>
+      <div><div class="svc-num">#04</div><div class="svc-label">Data Visualization</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED -->
+<section id="trusted">
+  <div class="trust-label">Institutions I've Worked With</div>
+  <div class="trust-logos">
+    <div class="trust-logo"><span class="d">◈</span> Deloitte</div>
+    <div class="trust-logo"><span class="d">◈</span> Scholastic</div>
+    <div class="trust-logo"><span class="d">◈</span> IIT Madras</div>
+    <div class="trust-logo"><span class="d">◈</span> Oracle Academy</div>
+    <div class="trust-logo"><span class="d">◈</span> Infosys</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <div class="section-eyebrow">Behind the Code</div>
+    <h2 class="about-heading">Shaping Systems<br>That Think &amp;<br>Deliver Results</h2>
+  </div>
+  <div class="reveal">
+    <p class="about-body">I'm an AI/ML developer and Data Science student focused on building intelligent systems that solve real-world problems.</p>
+    <p class="about-sub">Pursuing BE in CSE (AI&ML) at East Point College of Engineering and a BS in Data Science from IIT Madras — simultaneously. I bring hands-on experience from internships at Deloitte Australia and Scholastic. Based in Bangalore, open to collaborations, internships, and full-time opportunities.</p>
+    <a href="mailto:raj.03deepak@gmail.com" class="cta-btn">Let's build something <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-eyebrow reveal">Education</div>
+  <h2 class="section-h reveal">Where I Learn</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-num">01 — ENGINEERING</div>
+      <div class="edu-degree">BE — CSE (AI &amp; ML)</div>
+      <div class="edu-school">East Point College of Engineering &amp; Technology, Bangalore</div>
+      <span class="edu-year">Aug 2023 — Jul 2027</span>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-num">02 — DATA SCIENCE</div>
+      <div class="edu-degree">BS — Data Science &amp; Applications</div>
+      <div class="edu-school">Indian Institute of Technology Madras</div>
+      <span class="edu-year">Apr 2023 — Jun 2027</span>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-num">03 — SECONDARY</div>
+      <div class="edu-degree">Grade 12</div>
+      <div class="edu-school">AJPS, Bangalore</div>
+      <span class="edu-year">2021 — 2023</span>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-eyebrow reveal">Experience</div>
+  <h2 class="section-h reveal">Where I've Worked</h2>
+  <div class="exp-grid">
+    <div class="exp-card reveal">
+      <div class="exp-badge">● Data Analytics Intern</div>
+      <div class="exp-company">Deloitte Australia</div>
+      <div class="exp-period">June 2025 — July 2025</div>
+      <ul class="exp-bullets">
+        <li>Designed and developed interactive dashboards using Tableau to visualize key business metrics and trends.</li>
+        <li>Cleaned and organized large datasets to ensure data accuracy and consistency before analysis.</li>
+      </ul>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-badge">● Project Management Intern</div>
+      <div class="exp-company">Scholastic</div>
+      <div class="exp-period">Jan 2023 — Apr 2023 · Bangalore</div>
+      <ul class="exp-bullets">
+        <li>Conceptualized and executed promotional events encouraging reading habits among students.</li>
+        <li>Created and implemented strategic marketing campaigns in collaboration with team members.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="proj-intro">
+    <div>
+      <div class="section-eyebrow reveal">Projects</div>
+      <h2 class="section-h reveal" style="margin-bottom:0;">Things I've<br>Built</h2>
+    </div>
+    <p class="reveal">From computer vision to analytics dashboards — each project is a problem solved with precision and purpose.</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal" onmousemove="this.style.setProperty('--mx',event.offsetX/this.offsetWidth*100+'%');this.style.setProperty('--my',event.offsetY/this.offsetHeight*100+'%')">
+      <div class="proj-num">PROJECT — 01</div>
+      <div class="proj-title">Face Detection Attendance System</div>
+      <p class="proj-desc">Real-time face detection and recognition using the LBPH algorithm. Includes a training pipeline from webcam input, user registration interface, and automatic attendance logging to MySQL.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">MySQL</span><span class="tag">Tkinter</span></div>
+    </div>
+    <div class="project-card reveal" onmousemove="this.style.setProperty('--mx',event.offsetX/this.offsetWidth*100+'%');this.style.setProperty('--my',event.offsetY/this.offsetHeight*100+'%')">
+      <div class="proj-num">PROJECT — 02</div>
+      <div class="proj-title">Weather Dashboard App</div>
+      <p class="proj-desc">Dynamic responsive weather app with current conditions and 5-day forecasts by city. Pulls live data from OpenWeatherMap, displaying temperature, humidity, wind speed and conditions with clean UI.</p>
+      <div class="proj-tags"><span class="tag">HTML5</span><span class="tag">Tailwind CSS</span><span class="tag">JavaScript</span><span class="tag">OpenWeatherMap API</span><span class="tag">Vercel</span></div>
+    </div>
+    <div class="project-card reveal" onmousemove="this.style.setProperty('--mx',event.offsetX/this.offsetWidth*100+'%');this.style.setProperty('--my',event.offsetY/this.offsetHeight*100+'%')">
+      <div class="proj-num">PROJECT — 03</div>
+      <div class="proj-title">Customer Segmentation &amp; Sales Dashboard</div>
+      <p class="proj-desc">Comprehensive Tableau dashboard analyzing customer behavior and sales performance across products, segments, and geographies to support strategic marketing and sales decisions.</p>
+      <div class="proj-tags"><span class="tag">Tableau</span><span class="tag">Python</span><span class="tag">MS Excel</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-outer">
+    <div>
+      <div class="section-eyebrow reveal">Skills</div>
+      <h2 class="section-h reveal" style="margin-bottom:1.5rem;">What I<br>Work<br>With</h2>
+      <p class="reveal" style="color:var(--muted);font-size:0.9rem;line-height:1.75;">A blend of AI/ML expertise, data engineering, and full-stack capabilities — built for end-to-end delivery.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal"><div class="skill-head">⌨ Languages</div><div class="skill-list"><div class="skill-item">Python</div><div class="skill-item">Java</div><div class="skill-item">C / C++</div></div></div>
+      <div class="skill-card reveal"><div class="skill-head">🧩 Frameworks</div><div class="skill-list"><div class="skill-item">React.js</div><div class="skill-item">Tailwind CSS</div><div class="skill-item">Mongoose</div></div></div>
+      <div class="skill-card reveal"><div class="skill-head">🗄 Databases</div><div class="skill-list"><div class="skill-item">MySQL</div><div class="skill-item">MongoDB</div></div></div>
+      <div class="skill-card reveal"><div class="skill-head">🛠 Tools</div><div class="skill-list"><div class="skill-item">Tableau</div><div class="skill-item">OpenCV</div><div class="skill-item">VS Code</div><div class="skill-item">MySQL Workbench</div><div class="skill-item">MongoDB Compass</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-eyebrow reveal">Certifications</div>
+  <h2 class="section-h reveal">Credentials</h2>
+  <div class="certs-grid">
+    <div class="cert-card reveal"><div class="cert-ico">☕</div><div><div class="cert-name">JAVA Fundamentals</div><div class="cert-issuer">Oracle Academy</div></div></div>
+    <div class="cert-card reveal"><div class="cert-ico">🐍</div><div><div class="cert-name">Programming in Python</div><div class="cert-issuer">Infosys Springboard</div></div></div>
+    <div class="cert-card reveal"><div class="cert-ico">🔷</div><div><div class="cert-name">Applications Using Java</div><div class="cert-issuer">Infosys Springboard</div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <div class="contact-eyebrow">Let's Build Something Meaningful</div>
+    <h2 class="contact-h">Get In<br>Touch</h2>
+    <p class="contact-sub">Open to internships, collaborations, and full-time roles in AI/ML and data engineering.</p>
+    <a href="mailto:raj.03deepak@gmail.com" class="contact-email">raj.03deepak@gmail.com</a>
+    <div class="contact-phone">+91 97413 72168 · Bangalore, India</div>
+    <div class="social-row">
+      <a href="https://linkedin.com" target="_blank" class="social-pill">LinkedIn ↗</a>
+      <a href="https://github.com" target="_blank" class="social-pill">GitHub ↗</a>
+      <a href="tel:+919741372168" class="social-pill">Call ↗</a>
+    </div>
+  </div>
+  <div class="contact-card reveal">
+    <h3>Quick Info</h3>
+    <div class="info-row"><span class="lbl">Location</span><span>Bangalore, India</span></div>
+    <div class="info-row"><span class="lbl">Current Role</span><span>Student + Developer</span></div>
+    <div class="info-row"><span class="lbl">Availability</span><span>Open to Opportunities</span></div>
+    <div class="info-row"><span class="lbl">Focus Areas</span><span>AI / ML / Data</span></div>
+    <div class="info-row"><span class="lbl">Education</span><span>EPCE + IIT Madras</span></div>
+    <div class="cta-full">
+      <a href="mailto:raj.03deepak@gmail.com" class="cta-btn" style="width:100%;justify-content:space-between;">Send a message <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Deepak<span style="color:var(--orange)">.</span></div>
+  <div>© 2025 Deepak Raj T</div>
+  <div>Bangalore, India</div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      setTimeout(() => e.target.classList.add('visible'), i * 85);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.08});
+reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
